@@ -135,14 +135,14 @@ Partitioning is enforced by:
 
 ## 🛠️ Local Open-Source Tech Stack (Windows-Optimized)
 
-| Component | Technology | Role |
-|--------|----------|------|
-| Compute Plane | **:contentReference[oaicite:3]{index=3}** | Fast scans & aggregations |
-| Storage Format | **:contentReference[oaicite:4]{index=4}** (`delta-rs`) | ACID + time travel |
-| Orchestration | **:contentReference[oaicite:5]{index=5}** | Node & metadata management |
-| Vector DB | **:contentReference[oaicite:6]{index=6}** / **:contentReference[oaicite:7]{index=7}** | Persistent embeddings |
-| Local LLM | **:contentReference[oaicite:8]{index=8}** | Offline inference |
-| API Layer | **:contentReference[oaicite:9]{index=9}** | Query & retrieval gateway |
+| Component        | Technology | Role |
+|-----------------|------------|------|
+| Compute Plane   | **DuckDB** | Fast scans, aggregations, deduplication across Delta tables |
+| Storage Format  | **Delta Lake (delta-rs)** | ACID transactions, snapshot isolation, and time travel on local drives |
+| Orchestration   | **LlamaIndex** | Manages ingestion pipelines, nodes, and metadata flow |
+| Vector Database | **ChromaDB** / **LanceDB** | Persistent local storage for semantic embeddings |
+| Local LLM       | **Ollama (Llama 3 / Mistral)** | Offline inference to ensure full data privacy |
+| API Layer       | **FastAPI** | Exposes the Gold knowledge layer via a Vector Search API |
 
 ---
 
